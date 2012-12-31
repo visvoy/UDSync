@@ -23,17 +23,17 @@ class Session_data extends CI_Model
 		$query = $this->db->get(); //Process query
 		if( $query->num_rows == 0)
 		{
-		$timestamp = date('Y-m-d H:i:s',strtotime("+1 day")); //define timestamp
-		$hash = sha1($user_ipadress.$user_agent); //define hash by sha1
-		$data = array('ud_username' => $id ,'ud_timestamp' => $timestamp ,'ud_hash' => $hash);
-		$this->db->insert('ud_sessions', $data); //insert data to database
-		$query = $this->db->get(); //Process query
+			$timestamp = date('Y-m-d H:i:s',strtotime("+1 day")); //define timestamp
+			$hash = sha1($user_ipadress.$user_agent); //define hash by sha1
+			$data = array('ud_username' => $id ,'ud_timestamp' => $timestamp ,'ud_hash' => $hash);
+			$this->db->insert('ud_sessions', $data); //insert data to database
+			$query = $this->db->get(); //Process query
 		} else {
-		$timestamp = date('Y-m-d H:i:s',strtotime("+1 day")); //define timestamp
-		$hash = sha1($user_ipadress.$user_agent); //define hash by sha1
-		$data = array('ud_username' => $id ,'ud_timestamp' => $timestamp ,'ud_hash' => $hash);
-		$this->db->where('ud_username', $id);
-		$this->db->update('ud_sessions', $data); 
+			$timestamp = date('Y-m-d H:i:s',strtotime("+1 day")); //define timestamp
+			$hash = sha1($user_ipadress.$user_agent); //define hash by sha1
+			$data = array('ud_username' => $id ,'ud_timestamp' => $timestamp ,'ud_hash' => $hash);
+			$this->db->where('ud_username', $id);
+			$this->db->update('ud_sessions', $data); 
 		}
 
 	}

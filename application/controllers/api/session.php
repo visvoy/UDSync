@@ -16,15 +16,19 @@
 
 class Session extends CI_Controller
 {
-	function session_match( $hash = null ) //Set deafult value
+	function session_match( $hash = null , $appid = null , $appkey = null) //Set deafult value
 	{
-		if( !$hash ) //Verify value is exist
+		if( !$hash || !$appid || !$appkey) //Verify value is exist
 		{
 			echo $this->json->create_message('1','Value error'); //Returned an error message
 			exit; //Stop script running
 		}
 
+		$this->load->model('Application_data'); //Load application model
 		$this->load->model('Session_data'); //Load session model
+
+		if( $this->Application_data->match_app( $appid , $appkey ) == 1 ) //Make sure request was sent by registered client
+		{
 		$match = $this->Session_data->match_session( $hash );
 
 		if( $this->Session_data->match_session( $hash ) == FALSE )
@@ -33,6 +37,10 @@ class Session extends CI_Controller
 			exit; //Stop script running
 		} else {
 			echo $this->json->create_message('0',$match);
+			exit; //Stop script running
+		}	
+		} else {
+			echo $this->json->create_message('3','Unauthorized access'); //Returned unauthorized error
 			exit; //Stop script running
 		}
 	}

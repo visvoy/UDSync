@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: localhost
--- 產生日期: 2012 年 12 月 31 日 08:16
+-- 產生日期: 2012 年 12 月 31 日 14:12
 -- 伺服器版本: 5.5.20
 -- PHP 版本: 5.3.9
 
@@ -19,6 +19,27 @@ SET time_zone = "+00:00";
 --
 -- 資料庫: `udsync`
 --
+
+-- --------------------------------------------------------
+
+--
+-- 表的結構 `ud_applications`
+--
+
+CREATE TABLE IF NOT EXISTS `ud_applications` (
+  `app_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `app_domain` text NOT NULL,
+  `app_key` text NOT NULL,
+  `app_date` date NOT NULL,
+  PRIMARY KEY (`app_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- 轉存資料表中的資料 `ud_applications`
+--
+
+INSERT INTO `ud_applications` (`app_id`, `app_domain`, `app_key`, `app_date`) VALUES
+(1, 'http://localhost:8081/', 'C00BC1299358FCF95C4DC454E15BDD0F', '2012-12-31');
 
 -- --------------------------------------------------------
 

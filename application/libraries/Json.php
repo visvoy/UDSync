@@ -14,7 +14,7 @@
 
 class Json
 {
-	function create_message( $status = null , $message = null ) //$status = 1(error) , 0(success) , 2(other)
+	function create_message( $status = null , $message = null ) //$status = 1(error) , 0(success) , 2(other) , 3(Unauthorized access)
 	{
 		$json = array( 'status'=>$status , 'message'=>$message );
 		return json_encode( $json );

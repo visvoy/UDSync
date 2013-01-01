@@ -16,7 +16,7 @@
 
 class Session extends CI_Controller
 {
-	function session_match( $hash = null , $appid = null , $appkey = null) //Set deafult value
+	function session_match( $hash = null , $appid = null , $appkey = null) //Set default value
 	{
 		if( !$hash || !$appid || !$appkey) //Verify value is exist
 		{

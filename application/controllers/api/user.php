@@ -15,7 +15,7 @@
 
 Class User extends CI_Controller
 {
-	function user_login( $id = null , $password = null , $user_ipadress = null , $user_agent = null , $appid = null , $appkey = null ) //Set deafult value
+	function user_login( $id = null , $password = null , $user_ipadress = null , $user_agent = null , $appid = null , $appkey = null ) //Set default value
 	{
 		if( !$id || !$password || !$user_ipadress || !$user_agent || !$appid || !$appkey) //Verify value is exist
 		{
@@ -67,7 +67,7 @@ Class User extends CI_Controller
 		}
 	}
 
-	function user_create( $id = null , $email = null , $password = null , $appid = null , $appkey = null ) //Set deafult value
+	function user_create( $id = null , $email = null , $password = null , $appid = null , $appkey = null ) //Set default value
 	{
 		if( !$id || !$email || !$password || !$appid || !$appkey ) //Verify value is exist
 		{

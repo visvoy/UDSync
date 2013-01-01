@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主機: localhost
--- 產生日期: 2012 年 12 月 31 日 14:12
+-- 產生日期: 2013 年 01 月 01 日 08:25
 -- 伺服器版本: 5.5.20
 -- PHP 版本: 5.3.9
 
@@ -23,6 +23,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- 表的結構 `ud_admins`
+--
+
+CREATE TABLE IF NOT EXISTS `ud_admins` (
+  `admin_id` text NOT NULL,
+  `admin_is_founder` int(11) NOT NULL,
+  `admin_allow_install` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 轉存資料表中的資料 `ud_admins`
+--
+
+INSERT INTO `ud_admins` (`admin_id`, `admin_is_founder`, `admin_allow_install`) VALUES
+('admin', 1, 1);
+
+-- --------------------------------------------------------
+
+--
 -- 表的結構 `ud_applications`
 --
 
@@ -32,14 +51,15 @@ CREATE TABLE IF NOT EXISTS `ud_applications` (
   `app_key` text NOT NULL,
   `app_date` date NOT NULL,
   PRIMARY KEY (`app_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- 轉存資料表中的資料 `ud_applications`
 --
 
 INSERT INTO `ud_applications` (`app_id`, `app_domain`, `app_key`, `app_date`) VALUES
-(1, 'http://localhost:8081/', 'C00BC1299358FCF95C4DC454E15BDD0F', '2012-12-31');
+(1, 'http://localhost:8081/', 'C00BC1299358FCF95C4DC454E15BDD0F', '2012-12-31'),
+(2, 'http://youtube.com/', 'AC9196062E042EDF8046D51A7954F597', '2013-01-01');
 
 -- --------------------------------------------------------
 
@@ -52,6 +72,13 @@ CREATE TABLE IF NOT EXISTS `ud_sessions` (
   `ud_timestamp` date NOT NULL,
   `ud_hash` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 轉存資料表中的資料 `ud_sessions`
+--
+
+INSERT INTO `ud_sessions` (`ud_username`, `ud_timestamp`, `ud_hash`) VALUES
+('admin', '2013-01-02', '999e2abe4acf0a5f608c0e333a7aa3b852531950');
 
 -- --------------------------------------------------------
 

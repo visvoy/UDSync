@@ -23,4 +23,18 @@ class Application_data extends CI_Model
 		$query = $this->db->get(); //Process query
 		return $query->num_rows; //Returned a number to make sure app and key is match
 	}
+
+	function install_app ( $domain = null , $app_key = null )
+	{
+		$this->db->select('*')->from('ud_applications')->where('app_domain' , $domain)->or_where('app_key' , $app_key)->limit('1'); //Create query command
+		$query = $this->db->get(); //Process query
+		if( $query->num_rows == 0 ) //Verify app is not exist
+		{
+			$data = array('app_domain' => 'http://'.$domain.'/' ,'app_key' => $app_key ,'app_date' => date("Y-m-d")); //Set data array
+			$this->db->insert('ud_applications', $data); //Send it to database
+			return 1; //Return null
+		} else {
+			return 0; //Return FALSE
+		}
+	}
 }

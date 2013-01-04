@@ -29,7 +29,7 @@ Class User extends CI_Controller
 
 		if( $this->Application_data->match_app( $appid , $appkey ) == 1 ) //Make sure request was sent by registered client
 		{
-		if($this->User_data->user_login( $id , $password ) == 1) //Access database
+		if($this->User_data->user_login( $id , $password ) == 1 ) //Access database
 		{
 			echo $this->json->create_message('0','Login success'); //Returned a success message
 			$this->Session_data->create_session( $id , $user_ipadress , $user_agent);

@@ -71,12 +71,7 @@
 
 	<div id="body">
 		<p>Hi,UDSync is an open source user database.</p>
-
-		<p>You need a MySQL database.Import this file to your database.</p>
-		<code>udsync.sql</code>
-		<p>...And fill your database info with config file</p>
-		<code>application\config\database.php->#51~#54</code>
-		<p>We have no Web control panel now, Sorry about that.</p>
+		<p>If you seen this page , it mean your database settings is true. Enjoy it.</p>
 		<p>You can follow our product on <a href="https://github.com/a20968/UDSync" target="_blank">Github</a>.</p>
 	</div>
 

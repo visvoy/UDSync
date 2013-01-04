@@ -46,7 +46,7 @@ class Session_data extends CI_Model
 		if( $query->num_rows == 1 ) //if mysql result is exist
 		{
 			foreach ($query->result() as $v) { //Get query result
-					return $v->ud_username; //return username
+				return $v->ud_username; //return username
 			}
 		} else {
 			return FALSE; //return "no result"
